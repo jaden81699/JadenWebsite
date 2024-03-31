@@ -1,16 +1,20 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from datetime import datetime
 
 
 # Create your views here.
 
+x_date = datetime.now()
+currentDate = x_date.strftime("%B %d, %Y")
+
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'currentDate': currentDate})
 
 
-def generic(request):
-    return render(request, 'generic.html')
+def blog(request):
+    return render(request, 'blog.html', {'currentDate': currentDate})
 
 
-def elements(request):
-    return render(request, 'elements.html')
+def projects(request):
+    return render(request, 'projects.html')
